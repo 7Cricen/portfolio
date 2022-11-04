@@ -1,0 +1,90 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/c7.css' %}">
+{% endblock %}
+
+{% block titulo %}
+  {% if mensajes == True %}
+    <title>7Cricen - Lista de Mensajes</title>
+  {% else %}
+    <title>7Cricen - Lista de programas</title>
+  {% endif %}
+{% endblock %}
+
+{% block icon %}
+<link rel="icon" type="image/jpg" href="{{ configuracion.icono.url }}">
+{% endblock %}
+
+{%block content%}
+
+<div class="contenedor">
+  <div class="formulario">
+
+    {% if mensajes == True %}
+      {% if form %}
+      <h1 class="text-center">Mensajes recibidos</h1>
+      {% else %}
+      <h1 class="text-center">Sin mensajes</h1>
+      {% endif %}
+
+    {% else %}
+      {% if form %}
+      <h1 class="text-center">Lista de programas</h1>
+      {% else %}
+      <h1 class="text-center">Sin Programas</h1>
+      {% endif %}
+    {% endif %}
+
+    {% if error %}
+      <div class="alert alert-danger">{{ error }}</div> 
+    {% endif %}
+
+    {% if exito %}
+      <div class="alert alert-success">{{ exito }}</div> 
+    {% endif %}
+    
+    <ul class="list-group">
+    {% for elemento in form %}
+      <div class="lista-bloque list-group-item d-flex">
+
+        {% if mensajes == True %}
+
+          <h4 class="n_programa">{{elemento.nombre}} - {{elemento.asunto}}</h4>
+
+          <form action="{% url 'ver_mensaje' elemento.id %}" method="GET">
+            {% csrf_token %}
+            <button class="btn-ver btn btn-primary">Ver</button>
+          </form> 
+
+          <form action="{% url 'eliminar_mensaje' elemento.id %}" method="POST">
+            {% csrf_token %}
+            <button class="btn-ver btn btn-danger">Eliminar</button>
+          </form> 
+
+        {% else %}
+
+          <h4 class="n_programa">{{elemento.titulo}}</h4>
+
+          <form action="{% url 'ver_programa' elemento.id %}" method="GET">
+            {% csrf_token %}
+            <button class="btn-ver btn btn-primary">Ver</button>
+          </form> 
+
+          <form action="{% url 'eliminar_programa' elemento.id %}" method="POST">
+            {% csrf_token %}
+            <button class="btn-ver btn btn-danger">Eliminar</button>
+          </form> 
+
+        {% endif %}
+
+      </div>
+      <br>
+    {%endfor%}
+    </ul>
+  </div>
+</div>
+
+{%endblock%}

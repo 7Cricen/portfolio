@@ -1,0 +1,37 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/c7.css' %}">
+{% endblock %}
+
+{% block titulo %}
+<title>7Cricen - Ver Mensaje de {{ mensaje.nombre }}</title>
+{% endblock %}
+
+{% block icon %}
+<link rel="icon" type="image/jpg" href="{{ configuracion.icono.url }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="contenedor">
+  <div class="formulario">
+
+    <h2 class="text-center">Mensaje de {{ mensaje.nombre }}</h2>
+
+    {% if error %}
+      <div class="alert alert-danger">{{ error }}</div> 
+    {% endif %}
+
+    <div class="mensaje">Asunto: {{ mensaje.asunto }}</div>
+    <div class="mensaje">Mensaje: {{ mensaje.mensaje }}</div>
+    <div class="mensaje">Email: {{ mensaje.email }}</div>
+    <div class="mensaje">Fecha: {{ mensaje.fecha.date }}</div>
+
+
+  </div>
+
+</div>
+{% endblock %}

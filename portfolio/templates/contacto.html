@@ -1,0 +1,94 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/contacto.css' %}">
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+        <script src="https://www.google.com/recaptcha/api.js?render={{ site_key }}"></script>
+        <script>
+          grecaptcha.ready(function() {
+            $('#contactform').submit(function(e){
+              var form = this;
+              e.preventDefault()
+              grecaptcha.execute('{{ site_key }}', {action: 'contactform'}).then(function(token) {
+                  $('#recaptcha').val(token)
+                  form.submit()
+              });
+            })
+          });
+</script>
+
+{% endblock %}
+
+{% block titulo %}
+<title>7Cricen - Contacto</title>
+{% endblock %}
+
+{% block icon %}
+<link rel="icon" type="image/jpg" href="{{ configuracion.icono.url }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="contacto">
+  <div class="container">
+    <div class="row">
+      {% if enviado %}
+      <h2>Gracias por pasar {{ nombre }}</h2>
+      {% else %}
+      <h1>Contactame</h1>
+      {% endif %}
+
+      {% if is_robot %}
+      <h2>Gracias por pasar Robot</h2>
+      {% endif %}
+
+    </div>
+    <div class="row">
+      {% if enviado %}
+      <h4 style="text-align:center">En breve me pondre en contacto!</h4>
+      {% else %}
+      <h4 style="text-align:center">Estare encantado de ayudarte</h4>
+      {% endif %}
+    </div>
+    <form action="/contacto/" method="POST" id="contactform">
+      <input type="hidden" name="g-recaptcha-response" id="recaptcha">
+      {% csrf_token %}
+      <div class="row input-container">
+        <div class="col-xs-12">
+          <div class="styled-input wide">
+            <input type="text" name="nombre" required />
+            <label>Nombre</label> 
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="styled-input wide">
+            <input type="text" name="email" required />
+            <label>Email</label> 
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="styled-input wide">
+            <input type="text" name="asunto" required />
+            <label>Asunto</label> 
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <div class="styled-input wide">
+            <textarea name="mensaje" required></textarea>
+            <label>Mensaje</label>
+          </div>
+        </div>
+
+        <div class="col-xs-12">
+          <button class="btn-lrg submit-btn">Enviar Mensaje</button>
+        </div>
+    </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

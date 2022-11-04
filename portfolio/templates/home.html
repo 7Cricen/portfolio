@@ -1,0 +1,87 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block titulo %}
+<title>{{ configuracion.titulo_pestania }}</title>
+{% endblock %}
+
+{% block icon %}
+<link rel="icon" type="image/jpg" href="{{ configuracion.icono.url }}">
+
+{% endblock %}
+
+{% block content %}
+
+<div class="home">
+
+  <div class="descripcion">
+    <h2 class="d">{{ configuracion.descripcion }}</h2>
+  </div>
+
+  <div class="contenido">
+
+    <div class="subtitulo">
+      Projectos personales:
+    </div>
+
+    <section class="pp">
+    {% for programa in programas %}
+      <article>
+        <div class="borde2">
+          <a href="{% url 'project' programa.id %}">
+          <div class="cuerpo2" style="background: url('{{ programa.portada.url }}') no-repeat center;">
+            <div class="marco_titulo">
+              <div class="icono">
+                
+                <img src="{{ programa.icono.url }}" alt="">
+              </div>
+              <div class="m_titulo">
+                <div class="p_titulo">{{programa.titulo}}</div>
+                <div class="p_subtitulo">{{programa.subtitulo}}</div>
+              </div>
+            </div>
+          </div>
+          </a>
+        </div>
+      </article>
+    {% endfor %}
+
+
+    </section>
+
+    <div class="parte2">
+      <div class="subtitulo">
+        Conocimientos:
+      </div>
+
+      <section class="conocimientos">
+        <img src="{% static 'img/python.png' %}" alt="">
+        <img src="{% static 'img/dj.png' %}" alt="">
+        <img src="{% static 'img/html5.png' %}" alt="">
+        <img src="{% static 'img/css.png' %}" alt="">
+        <img src="{% static 'img/postgresql.png' %}" alt="">
+        <img src="{% static 'img/sqlite.png' %}" alt="">
+        <img src="{% static 'img/ps.png' %}" alt="">
+        <img src="{% static 'img/ai.png' %}" alt="">
+        <img src="{% static 'img/ue.png' %}" alt="">
+        <img src="{% static 'img/blender.png' %}" alt="">
+      </section>
+    </div>
+
+    <div class="parte3">
+      <div class="subtitulo">
+        Sobre mi:
+      </div>
+
+      <p>
+        {{ configuracion.informacion }}
+      </p>
+                 
+              
+    </div>
+
+  </div>
+
+</div>
+{% endblock %}

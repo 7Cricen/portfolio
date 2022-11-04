@@ -1,0 +1,140 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/projects.css' %}">
+{% endblock %}
+
+{% block titulo %}
+<title>{{ programa.titulo }}</title>
+{% endblock %}
+
+{% block icon %}
+<link rel="icon" type="image/jpg" href="{{ configuracion.icono.url }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="p">
+  <div class="p1">
+    <h2>{{ programa.titulo }}</h2>
+    <p>{{ programa.subtitulo}}</p>
+  </div>
+
+  <div class="p2">
+    <img src="{{ programa.icono.url }}" alt="">
+    <div class="info">
+      <p>Título: {{ programa.titulo }}</p>
+      <p>Versión: {{ programa.version }}</p>
+      <p>Fecha ultima actualizacion: {{ programa.ultima_actualizacion }}</p>
+      <p>Plataforma: {{ programa.plataforma }}</p>
+      <p>Idioma: {{ programa.idioma }}</p>
+      <p>Tamaño: {{ programa.tamanio }}</p>
+      <p>Licencia: {{ programa.licencia }}</p>
+    </div>
+  </div>
+
+  <div class="p3">
+    <div class='ptitulo'>Descripcion:</div>
+    <div class="pcontenido">
+      {{ programa.descripcion }}
+  </div>
+  </div>
+
+  <div class="p4">
+    <!-- <img src="{{ programa.portada.url }}" alt=""> -->
+
+    {% if programa.galeria_1 %}
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="{{ programa.galeria_1.url }}">
+            <img src="{{ programa.galeria_1.url }}" alt="Cinque Terre">
+          </a>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if programa.galeria_2 %}
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="{{ programa.galeria_2.url }}">
+            <img src="{{ programa.galeria_2.url }}" alt="Cinque Terre">
+          </a>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if programa.galeria_3 %}
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="{{ programa.galeria_3.url }}">
+            <img src="{{ programa.galeria_3.url }}" alt="Cinque Terre">
+          </a>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if programa.galeria_4 %}
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="{{ programa.galeria_4.url }}">
+            <img src="{{ programa.galeria_4.url }}" alt="Cinque Terre">
+          </a>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if programa.galeria_5 %}
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="{{ programa.galeria_5.url }}">
+            <img src="{{ programa.galeria_5.url }}" alt="Cinque Terre">
+          </a>
+        </div>
+      </div>
+    {% endif %}
+
+    {% if programa.galeria_6 %}
+      <div class="responsive">
+        <div class="gallery">
+          <a target="_blank" href="{{ programa.galeria_6.url }}">
+            <img src="{{ programa.galeria_6.url }}" alt="Cinque Terre">
+          </a>
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+
+  <div class="p5">
+
+    <div class='ptitulo'>Funciones destacadas:</div>
+    <ul class="pul">
+    {% if programa.funcion1 %}
+      <li>{{programa.funcion1}}</li>
+    {% endif %}
+    {% if programa.funcion2 %}
+      <li>{{programa.funcion2}}</li>
+    {% endif %}
+    {% if programa.funcion3 %}
+      <li>{{programa.funcion3}}</li>
+    {% endif %}
+    {% if programa.funcion4 %}
+      <li>{{programa.funcion4}}</li>
+    {% endif %}
+    </ul>
+
+    <div class='ptitulo'>Tecnologias usadas:</div>
+    <img class="p5_logo" src="{{ programa.tecnologias_icono.url }}" alt="">
+    <div class="pcontenido centro">{{ programa.tecnologias }}</div>
+
+    <div class='ptitulo'>Descargar:</div>
+    <div class="pcontenido centro">
+      
+    <img src="{% static 'img/descargar.png' %}" alt=""><br>
+      <a rel="stylesheet" href="{{ programa.link_descarga }}">{{ programa.link_descarga }}</div>
+
+  </div>
+
+</div>
+{% endblock content %}

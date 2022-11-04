@@ -1,0 +1,39 @@
+{% extends 'main.html' %}
+
+{% load static %}
+
+{% block estilos %}
+<link rel="stylesheet" href="{% static 'css/c7.css' %}">
+{% endblock %}
+
+{% block titulo %}
+<title>7Cricen - Agregar programa</title>
+{% endblock %}
+
+{% block icon %}
+<link rel="icon" type="image/jpg" href="{{ configuracion.icono.url }}">
+{% endblock %}
+
+{% block content %}
+
+<div class="contenedor">
+  <div class="formulario">
+
+    <form action="/new/" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h1 class="text-center">Agregar nuevo programa</h1>
+
+      {% if error %}
+        <div class="alert alert-danger">{{ error }}</div> 
+      {% endif %}
+      
+      {{ form }}
+
+      <button class="btn btn-primary">Guardar</button>
+      
+    </form>
+
+  </div>
+</div>
+
+{% endblock %}
