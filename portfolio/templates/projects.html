@@ -130,9 +130,9 @@
 
     <div class='ptitulo'>Descargar:</div>
     <div class="pcontenido centro">
-      
-    <img src="{% static 'img/descargar.png' %}" alt=""><br>
-    {{ programa.link_descarga }}
+    <a href="{{ programa.link_descarga }}">
+      <img src="{% static 'img/descargar.png' %}" alt="">
+    </a> 
 
   </div>
 
