@@ -10,7 +10,7 @@
 {% endblock %}
 
 {% block icon %}
-<link rel="icon" type="image/jpg" href="{{ configuracion.icono.url }}">
+<link rel="icon" type="image/jpg" href="{{ configuracion.icono }}">
 {% endblock %}
 
 {% block content %}
@@ -22,7 +22,7 @@
   </div>
 
   <div class="p2">
-    <img src="{{ programa.icono.url }}" alt="">
+    <img src="{{ programa.icono }}" alt="">
     <div class="info">
       <p>Título: {{ programa.titulo }}</p>
       <p>Versión: {{ programa.version }}</p>
@@ -47,8 +47,8 @@
     {% if programa.galeria_1 %}
       <div class="responsive">
         <div class="gallery">
-          <a target="_blank" href="{{ programa.galeria_1.url }}">
-            <img src="{{ programa.galeria_1.url }}" alt="Cinque Terre">
+          <a target="_blank" href="{{ programa.galeria_1 }}">
+            <img src="{{ programa.galeria_1 }}" alt="Cinque Terre">
           </a>
         </div>
       </div>
@@ -57,8 +57,8 @@
     {% if programa.galeria_2 %}
       <div class="responsive">
         <div class="gallery">
-          <a target="_blank" href="{{ programa.galeria_2.url }}">
-            <img src="{{ programa.galeria_2.url }}" alt="Cinque Terre">
+          <a target="_blank" href="{{ programa.galeria_2 }}">
+            <img src="{{ programa.galeria_2 }}" alt="Cinque Terre">
           </a>
         </div>
       </div>
@@ -67,8 +67,8 @@
     {% if programa.galeria_3 %}
       <div class="responsive">
         <div class="gallery">
-          <a target="_blank" href="{{ programa.galeria_3.url }}">
-            <img src="{{ programa.galeria_3.url }}" alt="Cinque Terre">
+          <a target="_blank" href="{{ programa.galeria_3 }}">
+            <img src="{{ programa.galeria_3 }}" alt="Cinque Terre">
           </a>
         </div>
       </div>
@@ -77,8 +77,8 @@
     {% if programa.galeria_4 %}
       <div class="responsive">
         <div class="gallery">
-          <a target="_blank" href="{{ programa.galeria_4.url }}">
-            <img src="{{ programa.galeria_4.url }}" alt="Cinque Terre">
+          <a target="_blank" href="{{ programa.galeria_4 }}">
+            <img src="{{ programa.galeria_4 }}" alt="Cinque Terre">
           </a>
         </div>
       </div>
@@ -87,8 +87,8 @@
     {% if programa.galeria_5 %}
       <div class="responsive">
         <div class="gallery">
-          <a target="_blank" href="{{ programa.galeria_5.url }}">
-            <img src="{{ programa.galeria_5.url }}" alt="Cinque Terre">
+          <a target="_blank" href="{{ programa.galeria_5 }}">
+            <img src="{{ programa.galeria_5 }}" alt="Cinque Terre">
           </a>
         </div>
       </div>
@@ -97,8 +97,8 @@
     {% if programa.galeria_6 %}
       <div class="responsive">
         <div class="gallery">
-          <a target="_blank" href="{{ programa.galeria_6.url }}">
-            <img src="{{ programa.galeria_6.url }}" alt="Cinque Terre">
+          <a target="_blank" href="{{ programa.galeria_6 }}">
+            <img src="{{ programa.galeria_6 }}" alt="Cinque Terre">
           </a>
         </div>
       </div>
@@ -125,14 +125,14 @@
     </ul>
 
     <div class='ptitulo'>Tecnologias usadas:</div>
-    <img class="p5_logo" src="{{ programa.tecnologias_icono.url }}" alt="">
+    <img class="p5_logo" src="{{ programa.tecnologias_icono }}" alt="">
     <div class="pcontenido centro">{{ programa.tecnologias }}</div>
 
     <div class='ptitulo'>Descargar:</div>
     <div class="pcontenido centro">
       
     <img src="{% static 'img/descargar.png' %}" alt=""><br>
-      <a rel="stylesheet" href="{{ programa.link_descarga }}">{{ programa.link_descarga }}</div>
+    {{ programa.link_descarga }}
 
   </div>
 

@@ -46,7 +46,7 @@ main{
 }
 
 .descripcion{
-  background: url("/static/img/fondo0.png") no-repeat 0 0;
+  background: url("https://i.imgur.com/jWu0dLU.png") no-repeat 0 0;
   background-size: 100% 100%;
   /* background-color: #e4e4e4; */
   height: 300px;
@@ -138,6 +138,7 @@ article{
 
 
 .cuerpo {
+  background: url("/static/img/card_img0.png") no-repeat;
   height: 500px;
   position: relative;
   border-style: solid;
@@ -166,6 +167,7 @@ article{
 }
 
 .cuerpo2 {
+  background: url("/static/img/card_img1.png") no-repeat;
   height: 500px;
   position: relative;
   border-style: solid;
@@ -290,5 +292,8 @@ footer{
 @media all and (max-width: 970px) {
   .borde{
     max-width: 946px;
+  }
+  .cuerpo {
+    background: url("/static/img/card_img1.png") no-repeat;
   }
 }

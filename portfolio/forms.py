@@ -28,7 +28,16 @@ class programa_form(forms.ModelForm):
       'funcion3':forms.Textarea(attrs={'class':'form-control my-3'}),
       'funcion4':forms.Textarea(attrs={'class':'form-control my-3'}),
       'tecnologias':forms.TextInput(attrs={'class':'form-control my-3'}),
+      'tecnologias_icono':forms.TextInput(attrs={'class':'form-control my-3'}),
       'link_descarga':forms.TextInput(attrs={'class':'form-control my-3'}),
+      'icono':forms.TextInput(attrs={'class':'form-control my-3'}),
+      'portada':forms.TextInput(attrs={'class':'form-control my-3'}),
+      'galeria_1':forms.TextInput(attrs={'class':'form-control my-3'}),
+      'galeria_2':forms.TextInput(attrs={'class':'form-control my-3'}),
+      'galeria_3':forms.TextInput(attrs={'class':'form-control my-3'}),
+      'galeria_4':forms.TextInput(attrs={'class':'form-control my-3'}),
+      'galeria_5':forms.TextInput(attrs={'class':'form-control my-3'}),
+      'galeria_6':forms.TextInput(attrs={'class':'form-control my-3'}),
     }
 
 
@@ -39,7 +48,10 @@ class panel_7c_form(forms.ModelForm):
     widgets = {
       'titulo':forms.TextInput(attrs={'class':'form-control my-3'}),
       'titulo_pestania':forms.TextInput(attrs={'class':'form-control my-3'}),
+      'logo':forms.TextInput(attrs={'class':'form-control my-3'}),
+      'icono':forms.TextInput(attrs={'class':'form-control my-3'}),
       'descripcion':forms.Textarea(attrs={'class':'form-control my-3'}),
+      'fondo':forms.TextInput(attrs={'class':'form-control my-3'}),
       'informacion':forms.Textarea(attrs={'class':'form-control my-3'}),
       'creditos':forms.TextInput(attrs={'class':'form-control my-3'}),
       'twitter':forms.TextInput(attrs={'class':'form-control my-3'}),

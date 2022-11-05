@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-zs23p8+&i68pr6(0*agkv5)g3$ohzgew92rx5zsni4ef#-+cek'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["cricen.herokuapp.com", "127.0.0.1"]
 
 
 # Application definition
@@ -44,13 +44,15 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware'
 ]
 
 ROOT_URLCONF = 'c7.urls'
@@ -126,7 +128,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATIC_TMP = os.path.join(BASE_DIR, 'static')
 STATIC_URL = 'static/'
 
 MEDIA_URL = 'media/'
@@ -135,8 +136,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'portfolio/static'),
 )
-
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 LOGIN_URL = '/login'
 
@@ -148,7 +147,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 RECAPTCHA_SITE_KEY = '6Ld4q9kiAAAAAFgJNicOvev6iSt9ao_NYCoJkBC5'
 RECAPTCHA_SECRET_KEY = '6Ld4q9kiAAAAAL1HP5Fpgfep-1HIAUJRmYt1XdFB'
 RECAPTCHA_REQUIRED_SCORE = 0.85
-
-
 
 

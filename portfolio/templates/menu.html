@@ -4,7 +4,7 @@
   <div class="titulo">
     <a href="{% url 'home' %}">
       {% if configuracion.logo %}
-      <img src="{{ configuracion.logo.url }}" alt="">
+      <img src="{{ configuracion.logo }}" alt="">
       {%endif%}
       <h2 class="t">{{ configuracion.titulo }}</h2>
     </a>

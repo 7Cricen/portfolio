@@ -6,16 +6,12 @@
 <title>{{ configuracion.titulo_pestania }}</title>
 {% endblock %}
 
-{% block icon %}
-<link rel="icon" type="image/jpg" href="{{ configuracion.icono.url }}">
-
-{% endblock %}
 
 {% block content %}
+<img  hidden src="https://i.imgur.com/jWu0dLU.png" title="source: imgur.com" /></a>
 
 <div class="home">
-
-  <div class="descripcion">
+  <div class="descripcion" style="background: url({{configuracion.fondo}}) no-repeat 0 0;">
     <h2 class="d">{{ configuracion.descripcion }}</h2>
   </div>
 
@@ -24,17 +20,19 @@
     <div class="subtitulo">
       Projectos personales:
     </div>
-
+    <img src="{{programa.portada}}" alt="">
     <section class="pp">
     {% for programa in programas %}
       <article>
         <div class="borde2">
+            
+          <img  hidden src="{{programa.portada}}" title="source: imgur.com" /></a>
           <a href="{% url 'project' programa.id %}">
-          <div class="cuerpo2" style="background: url('{{ programa.portada.url }}') no-repeat center;">
+
+          <div class="cuerpo2" style="background: url({{programa.portada}}) no-repeat center;">
             <div class="marco_titulo">
               <div class="icono">
-                
-                <img src="{{ programa.icono.url }}" alt="">
+                <img src="{{ programa.icono }}" alt="">
               </div>
               <div class="m_titulo">
                 <div class="p_titulo">{{programa.titulo}}</div>
