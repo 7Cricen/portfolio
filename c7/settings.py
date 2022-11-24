@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-zs23p8+&i68pr6(0*agkv5)g3$ohzgew92rx5zsni4ef#-+cek
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["cricen.herokuapp.com", "127.0.0.1", "cricen.fly.dev"]
+ALLOWED_HOSTS = ["cricen.herokuapp.com", "127.0.0.1", "cricen.up.railway.app"]
 
 
 # Application definition
