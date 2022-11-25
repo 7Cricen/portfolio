@@ -1,1 +1,0 @@
-web: gunicorn c7.wsgi --log-file -
