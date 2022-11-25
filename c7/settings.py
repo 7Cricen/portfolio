@@ -24,9 +24,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-zs23p8+&i68pr6(0*agkv5)g3$ohzgew92rx5zsni4ef#-+cek'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ["cricen.herokuapp.com", "127.0.0.1", "cricen.up.railway.app", "7cricen.up.railway.app"]
+ALLOWED_HOSTS = ["cricen.herokuapp.com", "127.0.0.1", "cricen.up.railway.app", "7cricen.up.railway.app", "*"]
 
 
 # Application definition
@@ -84,7 +84,7 @@ DATABASES = {
         # 'ENGINE': 'django.db.backends.postgresql',
         # 'NAME': 'c7db',
         # 'USER': 'postgres',
-        # 'PASSWORD': '37958866',
+        # 'PASSWORD': '77',
         # 'HOST': 'localhost',
         # 'PORT': '5432',
         'ENGINE': 'django.db.backends.sqlite3',
